@@ -244,7 +244,7 @@
 
     .category-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 14px;
     }
 
@@ -354,6 +354,42 @@
     .view-options {
       display: flex;
       gap: 6px;
+    }
+
+    .gallery-set {
+      margin-top: clamp(34px, 5vw, 70px);
+    }
+
+    .gallery-set:first-of-type {
+      margin-top: 0;
+    }
+
+    .gallery-set.is-hidden {
+      display: none;
+    }
+
+    .gallery-label {
+      display: grid;
+      grid-template-columns: minmax(0, 0.7fr) minmax(260px, 0.3fr);
+      gap: clamp(18px, 4vw, 60px);
+      align-items: end;
+      margin-bottom: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .gallery-label h3 {
+      margin-bottom: 0;
+      font-size: clamp(28px, 4vw, 56px);
+      font-weight: 400;
+      line-height: 0.95;
+    }
+
+    .gallery-label p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.48;
     }
 
     .gallery {
@@ -584,6 +620,7 @@
       }
 
       .section-head,
+      .gallery-label,
       .hero-deck,
       .about,
       .contact {
@@ -697,15 +734,22 @@
     <section class="section frame" id="galleries">
       <div class="section-head">
         <h2>Choose a gallery</h2>
-        <p>This first collection is a compact portrait study: natural light, a simple room, and a few small changes in posture that shift the whole mood.</p>
+        <p>Portrait is the parent gallery. Each collection below keeps its own mood, location, and edit while still living inside that larger body of work.</p>
       </div>
 
       <div class="category-grid">
-        <a class="category featured" href="#selected" data-jump-filter="portrait">
+        <a class="category" href="#window-room" data-jump-filter="portrait">
           <img src="assets/photos/portraits/portrait-couch-book.jpg" alt="Portrait of a man seated on a couch holding a book">
           <span class="category-text">
-            <h3>Portraits</h3>
-            <span>Natural light / Editorial / Character</span>
+            <h3>Window Room</h3>
+            <span>Portrait / Natural light / Character</span>
+          </span>
+        </a>
+        <a class="category" href="#botanical-studio" data-jump-filter="portrait">
+          <img src="assets/photos/portraits/botanical/brown-smile.jpg" alt="Portrait of a smiling man in a brown jacket surrounded by plants">
+          <span class="category-text">
+            <h3>Botanical Studio</h3>
+            <span>Portrait / Plants / Warm interiors</span>
           </span>
         </a>
       </div>
@@ -714,7 +758,7 @@
     <section class="section frame" id="selected">
       <div class="section-head">
         <h2>Selected work</h2>
-        <p>The first portrait gallery is live below as an eight-frame edit. Each frame opens into a full-screen view for slower looking.</p>
+        <p>Two portrait sub-galleries are live below. Each frame opens into a full-screen view for slower looking.</p>
       </div>
 
       <div class="work-tools" aria-label="Gallery controls">
@@ -728,7 +772,12 @@
         </div>
       </div>
 
-      <div class="gallery" aria-live="polite">
+      <div class="gallery-set" id="window-room" data-category="portrait">
+        <div class="gallery-label">
+          <h3>Window Room</h3>
+          <p>Eight-frame portrait study in a quiet window-lit room.</p>
+        </div>
+        <div class="gallery" aria-live="polite">
         <button class="photo-card tall" type="button" data-category="portrait" data-title="Window Vest" data-meta="Portrait / Natural Light / 2026">
           <img src="assets/photos/portraits/portrait-vest-window.jpg" alt="Portrait of a man in an olive vest standing by a window">
           <span class="caption"><span>Window Vest</span><span>Portrait</span></span>
@@ -761,6 +810,64 @@
           <img src="assets/photos/portraits/portrait-plaid-collar.jpg" alt="Portrait of a man in a plaid shirt adjusting his collar and looking sideways">
           <span class="caption"><span>Plaid Collar</span><span>Portrait</span></span>
         </button>
+        </div>
+      </div>
+
+      <div class="gallery-set" id="botanical-studio" data-category="portrait">
+        <div class="gallery-label">
+          <h3>Botanical Studio</h3>
+          <p>A separate portrait edit with cream layers, warm wood, books, greenery, and saturated interior light.</p>
+        </div>
+        <div class="gallery" aria-live="polite">
+        <button class="photo-card tall" type="button" data-category="portrait" data-title="Cream Sunglasses" data-meta="Portrait / Botanical Studio / 2026">
+          <img src="assets/photos/portraits/botanical/cream-sunglasses.jpg" alt="Portrait of a man in a cream overshirt holding sunglasses below a warm wood ceiling">
+          <span class="caption"><span>Cream Sunglasses</span><span>Portrait</span></span>
+        </button>
+        <button class="photo-card tall" type="button" data-category="portrait" data-title="Cream Close" data-meta="Portrait / Botanical Studio / 2026">
+          <img src="assets/photos/portraits/botanical/cream-close.jpg" alt="Close portrait of a man in a cream overshirt holding sunglasses">
+          <span class="caption"><span>Cream Close</span><span>Portrait</span></span>
+        </button>
+        <button class="photo-card tall" type="button" data-category="portrait" data-title="Bench Laugh" data-meta="Portrait / Botanical Studio / 2026">
+          <img src="assets/photos/portraits/botanical/bench-laugh.jpg" alt="Portrait of a man laughing while seated on a bench against a brick wall">
+          <span class="caption"><span>Bench Laugh</span><span>Portrait</span></span>
+        </button>
+        <button class="photo-card tall" type="button" data-category="portrait" data-title="Yellow Book" data-meta="Portrait / Botanical Studio / 2026">
+          <img src="assets/photos/portraits/botanical/reading-yellow-book.jpg" alt="Portrait of a man seated in a warm interior holding a yellow book">
+          <span class="caption"><span>Yellow Book</span><span>Portrait</span></span>
+        </button>
+        <button class="photo-card tall" type="button" data-category="portrait" data-title="Cream Short Sleeve" data-meta="Portrait / Botanical Studio / 2026">
+          <img src="assets/photos/portraits/botanical/cream-short-sleeve.jpg" alt="Portrait of a man in a cream short sleeve shirt holding an orange cap">
+          <span class="caption"><span>Cream Short Sleeve</span><span>Portrait</span></span>
+        </button>
+        <button class="photo-card tall" type="button" data-category="portrait" data-title="Cream Profile" data-meta="Portrait / Botanical Studio / 2026">
+          <img src="assets/photos/portraits/botanical/cream-profile.jpg" alt="Portrait of a man leaning near a display case while holding an orange cap">
+          <span class="caption"><span>Cream Profile</span><span>Portrait</span></span>
+        </button>
+        <button class="photo-card tall" type="button" data-category="portrait" data-title="Drinks Smile" data-meta="Portrait / Botanical Studio / 2026">
+          <img src="assets/photos/portraits/botanical/drinks-smile.jpg" alt="Smiling portrait of a man in a white shirt seated in front of plants and a drinks sign">
+          <span class="caption"><span>Drinks Smile</span><span>Portrait</span></span>
+        </button>
+        <button class="photo-card tall" type="button" data-category="portrait" data-title="Brown Smile" data-meta="Portrait / Botanical Studio / 2026">
+          <img src="assets/photos/portraits/botanical/brown-smile.jpg" alt="Smiling portrait of a man in a brown jacket surrounded by plants">
+          <span class="caption"><span>Brown Smile</span><span>Portrait</span></span>
+        </button>
+        <button class="photo-card tall" type="button" data-category="portrait" data-title="Brown Close" data-meta="Portrait / Botanical Studio / 2026">
+          <img src="assets/photos/portraits/botanical/brown-close.jpg" alt="Close portrait of a man in a brown jacket surrounded by plants">
+          <span class="caption"><span>Brown Close</span><span>Portrait</span></span>
+        </button>
+        <button class="photo-card tall" type="button" data-category="portrait" data-title="Plaid Pencil" data-meta="Portrait / Botanical Studio / 2026">
+          <img src="assets/photos/portraits/botanical/plaid-pencil.jpg" alt="Portrait of a man in a plaid shirt seated with a pencil in a plant-filled room">
+          <span class="caption"><span>Plaid Pencil</span><span>Portrait</span></span>
+        </button>
+        <button class="photo-card tall" type="button" data-category="portrait" data-title="Plaid Table" data-meta="Portrait / Botanical Studio / 2026">
+          <img src="assets/photos/portraits/botanical/plaid-table.jpg" alt="Portrait of a man in a plaid shirt seated at a colorful table with plants behind him">
+          <span class="caption"><span>Plaid Table</span><span>Portrait</span></span>
+        </button>
+        <button class="photo-card tall" type="button" data-category="portrait" data-title="Plaid Greenery" data-meta="Portrait / Botanical Studio / 2026">
+          <img src="assets/photos/portraits/botanical/plaid-greenery.jpg" alt="Portrait of a man in a plaid shirt looking to the side with greenery behind him">
+          <span class="caption"><span>Plaid Greenery</span><span>Portrait</span></span>
+        </button>
+        </div>
       </div>
     </section>
 
@@ -823,7 +930,8 @@
     const filters = document.querySelectorAll(".filter");
     const categoryLinks = document.querySelectorAll("[data-jump-filter]");
     const cards = document.querySelectorAll(".photo-card");
-    const gallery = document.querySelector(".gallery");
+    const gallerySets = document.querySelectorAll(".gallery-set");
+    const galleries = document.querySelectorAll(".gallery");
     const sizeToggles = document.querySelectorAll(".size-toggle");
     const lightbox = document.querySelector(".lightbox");
     const lightboxImage = lightbox.querySelector("img");
@@ -840,6 +948,11 @@
         const shouldHide = selected !== "all" && card.dataset.category !== selected;
         card.classList.toggle("is-hidden", shouldHide);
       });
+
+      gallerySets.forEach((set) => {
+        const visibleCards = set.querySelectorAll(".photo-card:not(.is-hidden)").length;
+        set.classList.toggle("is-hidden", visibleCards === 0);
+      });
     }
 
     filters.forEach((filter) => {
@@ -855,7 +968,9 @@
     sizeToggles.forEach((toggle) => {
       toggle.addEventListener("click", () => {
         const useLarge = toggle.dataset.size === "large";
-        gallery.classList.toggle("large", useLarge);
+        galleries.forEach((gallery) => {
+          gallery.classList.toggle("large", useLarge);
+        });
         sizeToggles.forEach((button) => {
           button.setAttribute("aria-pressed", String(button === toggle));
         });

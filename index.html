@@ -234,7 +234,6 @@
     }
 
     .section-head p,
-    .about-copy p,
     .contact p {
       margin-bottom: 0;
       color: var(--muted);
@@ -463,55 +462,6 @@
       text-transform: uppercase;
     }
 
-    .about {
-      display: grid;
-      grid-template-columns: 0.8fr 1fr;
-      gap: clamp(28px, 6vw, 88px);
-      align-items: center;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .about-photo {
-      min-height: 620px;
-      overflow: hidden;
-      background: #d8cbbc;
-      box-shadow: var(--shadow);
-    }
-
-    .about-copy h2 {
-      margin-bottom: 24px;
-    }
-
-    .notes {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      margin-top: 34px;
-      border: 1px solid var(--line);
-      background: var(--line);
-    }
-
-    .note {
-      min-height: 122px;
-      padding: 18px;
-      background: rgba(255, 250, 241, 0.58);
-    }
-
-    .note strong {
-      display: block;
-      margin-bottom: 10px;
-      font: 700 11px/1.35 "Courier New", monospace;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-    }
-
-    .note span {
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.42;
-    }
-
     .contact {
       display: grid;
       grid-template-columns: minmax(0, 0.85fr) minmax(300px, 0.55fr);
@@ -622,7 +572,6 @@
       .section-head,
       .gallery-label,
       .hero-deck,
-      .about,
       .contact {
         grid-template-columns: 1fr;
       }
@@ -662,8 +611,7 @@
         font-size: clamp(50px, 18vw, 78px);
       }
 
-      .category-grid,
-      .notes {
+      .category-grid {
         grid-template-columns: 1fr;
       }
 
@@ -691,14 +639,6 @@
         grid-column: 1 / -1;
       }
 
-      .about-photo {
-        min-height: auto;
-      }
-
-      .about-photo img {
-        aspect-ratio: 4 / 5;
-      }
-
       .footer {
         display: grid;
       }
@@ -712,7 +652,6 @@
       <div class="links">
         <a href="#galleries">Galleries</a>
         <a href="#selected">Selected Work</a>
-        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -1278,31 +1217,6 @@
           <img src="assets/photos/family/toddler-study/soft-blue-eye.jpg" alt="Soft close portrait of a curly-haired toddler with one blue eye visible">
           <span class="caption"><span>Soft Blue Eye</span><span>Family</span></span>
         </button>
-        </div>
-      </div>
-    </section>
-
-    <section class="section frame about" id="about">
-      <div class="about-photo">
-        <img src="assets/photos/portraits/portrait-green-overshirt.jpg" alt="Portrait of a man in a green overshirt looking to the side">
-      </div>
-      <div class="about-copy">
-        <p class="eyebrow">About the photographer</p>
-        <h2>Attentive images, edited with restraint.</h2>
-        <p>This portfolio is being built as a living edit: real image collections first, with the structure ready to expand as each gallery comes in.</p>
-        <div class="notes">
-          <div class="note">
-            <strong>Based in</strong>
-            <span>Denver, available for selected projects and travel.</span>
-          </div>
-          <div class="note">
-            <strong>Focus</strong>
-            <span>Portraits, pets, family, travel, interiors, documentary stories.</span>
-          </div>
-          <div class="note">
-            <strong>Now booking</strong>
-            <span>Editorial, personal, brand, and small commercial sessions.</span>
-          </div>
         </div>
       </div>
     </section>
